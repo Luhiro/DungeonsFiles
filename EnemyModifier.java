@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DungeonsCrawler;
 
 /**
@@ -12,9 +7,11 @@ package DungeonsCrawler;
 public class EnemyModifier {
     
     Enemy enemy;
+    MonsterRandomizer randomizer;
+    CompanionsModifier companion;
     
     public void createEnemy(){
-        enemy = new Enemy("",1,randomizer.randomize(companion.getMonsterIndex(7),3));
+        enemy = new Enemy("Professor",500,randomizer.randomize(companion.getMonsterIndex(7),3));
         
     }
 }

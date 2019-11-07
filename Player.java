@@ -17,6 +17,7 @@ public class Player {
     
     private String userName;
     private String userGender;
+    private int playerCash = 0;
     private int genderChooser;
     private int companionChooser;
     private int actionChooser;
@@ -30,6 +31,12 @@ public class Player {
     }
     public String getGender(){
         return userGender;
+    }
+    public int getCash(){
+        return playerCash;
+    }
+    public int getCompanionsLength(){
+        return playerCompanion.size();
     }
     public AllCompanions getCompanion(int index){
         return playerCompanion.get(index);
@@ -48,6 +55,9 @@ public class Player {
         else if(genderChooser == 2){
             userGender = "Female";
         }
+    }
+    public void updateCash(int updatedCash){
+        playerCash = updatedCash;
     }
     public void addItem(int Q,BagItems item){
         for (int i = 0; i < Q; i++) {

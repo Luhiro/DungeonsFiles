@@ -40,32 +40,32 @@ public class UserInterface {
     }
     public void welcome(){
 
-        System.out.println("Voice: Hi and welcome to the world of Faiym \n");
-        System.out.println("Voice: Here our way of living and to get money we go on adventures ");
-        System.out.println("Voice: with our trusty companion, we go on a journey to have a wonderfull adventure");
+        System.out.println("Professor: Hi and welcome to the world of Faiym \n");
+        System.out.println("Professor: Here our way of living and to get money we go on adventures ");
+        System.out.println("Professor: with our trusty companion, we go on a journey to have a wonderfull adventure");
         do{           
-            System.out.println("Voice: So first things first, tell me what is your name\n-----");
+            System.out.println("Professor: So first things first, tell me what is your name\n-----");
             player.updateUserName();
-            System.out.println("-----\nVoice: Mhhhh, so your name is "+ player.getUserName()+ " am i correct ?");
+            System.out.println("-----\nProfessor: Mhhhh, so your name is "+ player.getUserName()+ " am i correct ?");
             System.out.println("      0 - No        1 - Yes");
             certifyAnswer = input.nextInt();           
         }while(certifyAnswer == 0);
-        System.out.println("-----\nVoice: So tell me");
+        System.out.println("-----\nProfessor: So tell me");
         do{
-            System.out.println("Voice: What is your Gender\n-----");
+            System.out.println("Professor: What is your Gender\n-----");
             player.updateGender();
-            System.out.println("----\nVoice: Mhhhh, so you're a " + player.getGender() + " am i correct ?");
+            System.out.println("----\nProfessor: Mhhhh, so you're a " + player.getGender() + " am i correct ?");
             System.out.println("      0 - No        1 - Yes");
             certifyAnswer = input.nextInt();
         }while(certifyAnswer == 0);
-        System.out.println("Voice: So " + player.getUserName() + " ,now that we know you let's choose a companion to join you!!!\n-----");
+        System.out.println("Professor: So " + player.getUserName() + " ,now that we know you let's choose a companion to join you!!!\n-----");
 
 }
     
     public void chooseMonster(){
         int monsterChooser = 0;
-        System.out.println("Voice: We usually specify in training one of each three mainly types of companions");
-        System.out.println("Voice: For now choose one you like to have!");
+        System.out.println("Professor: We usually specify in training one of each three mainly types of companions");
+        System.out.println("Professor: For now choose one you like to have!");
         System.out.println("1- Ranger      2- Ground      3- Sky");
         do{
             System.out.println("-----\nchoose one\n-----");
@@ -84,7 +84,7 @@ public class UserInterface {
                             player.addMonster(randomizer.randomize(companion.getMonsterIndex(7),3));
                             break;
                     }            
-                    System.out.printf("-----\nVoice: So you would like to choose %s\n",player.getCompanion(0).getName());                    
+                    System.out.printf("-----\nProfessor: So you would like to choose %s\n",player.getCompanion(0).getName());                    
                     System.out.println("-----\n      0 - No        1 - Yes");
                     certifyAnswer = input.nextInt();    
                     if(certifyAnswer == 0){
@@ -93,29 +93,28 @@ public class UserInterface {
         }while(certifyAnswer == 0);         
     }
     public void tutorial(){
-        System.out.println("-----\nVoice: Now that you are ready let me tell some things ");
-        System.out.println("Voice: Troughout your adventure you can check your Companion stats");
-        System.out.println("Voice: Try accessing your companion menu by clicking 1");
+        System.out.println("-----\nProfessor: Now that you are ready let me tell some things ");
+        System.out.println("Professor: Troughout your adventure you can check your Companion stats");
+        System.out.println("Professor: Try accessing your companion menu by clicking 1");
         System.out.println("1 - see companions\n-----");
         action = input.nextInt();
         if(action == 1){
             player.displayCompanions();
         }
-        System.out.printf("\nVoice: Perfect %s if you ever feel the need to check your companions do that ",player.getUserName());
-        System.out.println("\nVoice: Now let's check What is in your bag ");
-        System.out.println("Voice: Try accessing your bag menu by clicking 1");
+        System.out.printf("\nProfessor: Perfect %s if you ever feel the need to check your companions do that ",player.getUserName());
+        System.out.println("\nProfessor: Now let's check What is in your bag ");
+        System.out.println("Professor: Try accessing your bag menu by clicking 1");
         action = input.nextInt();
         if(action == 1){
             player.displayBag();
         }
-        System.out.println("Voice: Mhhh, you don't have anything yet ");
-        System.out.println("Voice: here take some potions to help your companion in times of need!");      
+        System.out.println("Professor: Mhhh, you don't have anything yet ");
+        System.out.println("Professor: here take some potions to help your companion in times of need!");      
         player.addItem(3,bagModifier.createPotion("Small Potion", 10));
         player.displayBag();
-        System.out.println("Now let's try and fight against a dummy and see how well you do");
-        battle.normalBattle(player,new Enemy("Dummy",0,randomizer.randomize(companion.getMonsterIndex(7),3)));
-        
-        
+        System.out.println("Professor: Now let's try and fight against me and see how well you do");
+        battle.trainerBattle(player,new Enemy("Professor",500,randomizer.randomize(companion.getMonsterIndex(7),3)));
+ 
         System.out.println("Voice: Well now that you are prepared");
         System.out.println("Voice: Good luck on your journey and remember you choose the way you decide to fight");      
     }
